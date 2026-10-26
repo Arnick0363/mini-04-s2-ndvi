@@ -1,0 +1,25 @@
+{
+  "type": "FeatureCollection",
+  "name": "macau_nearshore_aoi",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "澳门及近岸矩形研究区",
+        "note": "教学用矩形范围，覆盖澳门半岛、氹仔、路凼、路环及紧邻水域。西缘可能带入横琴极小一部分，不是官方行政境界。"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [113.528, 22.106],
+            [113.598, 22.106],
+            [113.598, 22.217],
+            [113.528, 22.217],
+            [113.528, 22.106]
+          ]
+        ]
+      }
+    }
+  ]
+}

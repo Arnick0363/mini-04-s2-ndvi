@@ -1,0 +1,4 @@
+rasterio==1.5.2
+numpy==2.5.4
+matplotlib==3.11.2
+geopandas==1.2.0

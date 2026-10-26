@@ -1,0 +1,26 @@
+# ---- 原始影像不入库（体积大；真实 L2A 单景数百 MB，本地用脚本按窗口下载）----
+data/raw/*.tif
+data/raw/*.zip
+data/raw/*.jp2
+data/raw/*.xml
+
+# ---- 临时提取与合成自测输出 ----
+_tmp_*
+outputs/demo/
+
+# ---- 虚拟环境 ----
+venv/
+.venv/
+
+# ---- Python 产物 ----
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# ---- IDE / 系统 ----
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+*.aux.xml
+*.ovr

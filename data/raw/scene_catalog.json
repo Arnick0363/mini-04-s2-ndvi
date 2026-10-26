@@ -1,0 +1,163 @@
+{
+  "source": "Element84 Earth Search 公开 COG，集合 sentinel-2-c1-l2a（Copernicus Sentinel-2 L2A Collection-1）",
+  "credit": "Contains modified Copernicus Sentinel data 2026",
+  "stac_endpoint": "https://earth-search.aws.element84.com/v1",
+  "why_these_dates": "2026-01-08 与 2026-08-06 同为 Sentinel-2C、分幅 49QGE。一月代表冬季旱季，八月代表夏季湿季。珠江口夏季整景云量很少低于 10%，因此先保留研究区内 SCL 晴空比例高的八月景，而不是只看 110 km 分幅的整景云量。",
+  "resolution_note": "输出格网 20 m。B04/B08 的原生分辨率是 10 m；读取时使用 COG 的 2 倍概视图，因为本机对约 1.3 MB 的 10 m 压缩瓦片会收到不完整响应。SCL 本身是 20 m，与这个格网一致。NDVI 用的仍是 B04 与 B08 的地表反射率。",
+  "aoi_file": "data/raw/aoi.geojson",
+  "target_grid": {
+    "crs": "EPSG:32649",
+    "resolution_m": 20.0,
+    "width": 452,
+    "height": 702,
+    "pad_m": 800.0
+  },
+  "reflectance_note": "地表反射率 = DN * scale + offset。本批 COG 的 scale=0.0001、offset=-0.1，等价于 (DN-1000)/10000。NDVI 对共同乘数不敏感，但对这个加性偏移敏感，所以必须换算后再做比值。",
+  "scl_clear_classes": [
+    2,
+    4,
+    5,
+    6,
+    7
+  ],
+  "scl_class_meaning": {
+    "0": "无数据",
+    "1": "饱和或缺陷",
+    "2": "暗像元（保留）",
+    "3": "云影",
+    "4": "植被",
+    "5": "非植被",
+    "6": "水体",
+    "7": "未分类（保留）",
+    "8": "中概率云",
+    "9": "高概率云",
+    "10": "薄卷云",
+    "11": "雪或冰"
+  },
+  "summer_2026_lowest_tile_cloud": [
+    {
+      "item_id": "S2A_T49QGE_20260808T030558_L2A",
+      "date": "2026-08-08",
+      "eo_cloud_cover": 23.154187,
+      "mgrs": "MGRS-49QGE"
+    },
+    {
+      "item_id": "S2B_T49QGE_20260602T031025_L2A",
+      "date": "2026-06-02",
+      "eo_cloud_cover": 25.377849,
+      "mgrs": "MGRS-49QGE"
+    },
+    {
+      "item_id": "S2C_T49QGE_20260806T030726_L2A",
+      "date": "2026-08-06",
+      "eo_cloud_cover": 26.701286,
+      "mgrs": "MGRS-49QGE"
+    },
+    {
+      "item_id": "S2C_T49QGE_20260816T031017_L2A",
+      "date": "2026-08-16",
+      "eo_cloud_cover": 31.203106,
+      "mgrs": "MGRS-49QGE"
+    },
+    {
+      "item_id": "S2B_T49QGE_20260811T030901_L2A",
+      "date": "2026-08-11",
+      "eo_cloud_cover": 40.869007,
+      "mgrs": "MGRS-49QGE"
+    },
+    {
+      "item_id": "S2B_T49QGE_20260622T030959_L2A",
+      "date": "2026-06-22",
+      "eo_cloud_cover": 42.769384,
+      "mgrs": "MGRS-49QGE"
+    },
+    {
+      "item_id": "S2B_T49QGE_20260712T030609_L2A",
+      "date": "2026-07-12",
+      "eo_cloud_cover": 43.296608,
+      "mgrs": "MGRS-49QGE"
+    },
+    {
+      "item_id": "S2B_T49QGE_20260722T030436_L2A",
+      "date": "2026-07-22",
+      "eo_cloud_cover": 47.259927,
+      "mgrs": "MGRS-49QGE"
+    }
+  ],
+  "scenes": {
+    "winter": {
+      "item_id": "S2C_T49QGE_20260108T030118_L2A",
+      "datetime": "2026-01-08T03:11:53.002000Z",
+      "date": "2026-01-08",
+      "platform": "sentinel-2c",
+      "mgrs": "MGRS-49QGE",
+      "eo_cloud_cover": 0.020338,
+      "processing_baseline": "05.11",
+      "stac_item": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T49QGE_20260108T030118_L2A",
+      "reflectance_scale": 0.0001,
+      "reflectance_offset": -0.1,
+      "reflectance_method": "geotiff_scale_offset",
+      "red_reflectance_median_before_scl_mask": 0.11509998887777328,
+      "aoi_scl_clear_percent": 99.89,
+      "properties": {
+        "datetime": "2026-01-08T03:11:53.002000Z",
+        "platform": "sentinel-2c",
+        "constellation": "sentinel-2",
+        "eo:cloud_cover": 0.020338,
+        "grid:code": "MGRS-49QGE",
+        "s2:processing_baseline": "05.11",
+        "s2:product_uri": "S2C_MSIL2A_20260108T030121_N0511_R032_T49QGE_20260108T060309.SAFE",
+        "sat:orbit_state": null,
+        "view:sun_elevation": 41.4898650107789,
+        "s2:vegetation_percentage": 16.654338,
+        "s2:not_vegetated_percentage": 16.650911,
+        "s2:water_percentage": 66.59171,
+        "s2:cloud_shadow_percentage": 0.000163,
+        "s2:nodata_pixel_percentage": 0,
+        "s2:thin_cirrus_percentage": 0.005932,
+        "s2:medium_proba_clouds_percentage": 0.013477,
+        "s2:high_proba_clouds_percentage": 0.000929
+      },
+      "role": "冬季旱季",
+      "boa_file": "data/raw/s2_winter_boa.tif",
+      "scl_file": "data/raw/s2_winter_scl.tif"
+    },
+    "summer": {
+      "item_id": "S2C_T49QGE_20260806T030726_L2A",
+      "datetime": "2026-08-06T03:11:48.741000Z",
+      "date": "2026-08-06",
+      "platform": "sentinel-2c",
+      "mgrs": "MGRS-49QGE",
+      "eo_cloud_cover": 26.701286,
+      "processing_baseline": "05.12",
+      "stac_item": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T49QGE_20260806T030726_L2A",
+      "reflectance_scale": 0.0001,
+      "reflectance_offset": -0.1,
+      "reflectance_method": "geotiff_scale_offset",
+      "red_reflectance_median_before_scl_mask": 0.16940000653266907,
+      "aoi_scl_clear_percent": 74.76,
+      "properties": {
+        "datetime": "2026-08-06T03:11:48.741000Z",
+        "platform": "sentinel-2c",
+        "constellation": "sentinel-2",
+        "eo:cloud_cover": 26.701286,
+        "grid:code": "MGRS-49QGE",
+        "s2:processing_baseline": "05.12",
+        "s2:product_uri": "S2C_MSIL2A_20260806T025521_N0512_R032_T49QGE_20260806T080009.SAFE",
+        "sat:orbit_state": null,
+        "view:sun_elevation": 70.34547317213679,
+        "s2:vegetation_percentage": 14.121513,
+        "s2:not_vegetated_percentage": 8.72397,
+        "s2:water_percentage": 47.188818,
+        "s2:cloud_shadow_percentage": 2.058334,
+        "s2:nodata_pixel_percentage": 7e-06,
+        "s2:thin_cirrus_percentage": 0.479773,
+        "s2:medium_proba_clouds_percentage": 19.896601,
+        "s2:high_proba_clouds_percentage": 6.324913
+      },
+      "role": "夏季湿季",
+      "boa_file": "data/raw/s2_summer_boa.tif",
+      "scl_file": "data/raw/s2_summer_scl.tif"
+    }
+  }
+}
