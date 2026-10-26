@@ -121,7 +121,7 @@ def ndvi(red, nir):
     return out
 
 
-def summarize(arr: np.ndarray, pixel_m: float = 20.0) -> dict:
+def summarize(arr: np.ndarray, pixel_m: float = 10.0) -> dict:
     values = arr[np.isfinite(arr)]
     if values.size == 0:
         return {"n": 0}

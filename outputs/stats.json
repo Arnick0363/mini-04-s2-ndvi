@@ -15,205 +15,205 @@
       0.3
     ]
   },
-  "pixel_size_m": 20.0,
+  "pixel_size_m": 10.0,
   "summer": {
-    "n": 165827,
-    "area_km2": 66.3308,
-    "min": -0.9969,
-    "max": 0.999,
-    "mean": 0.2177,
-    "std": 0.4067,
-    "p05": -0.3089,
-    "p50": 0.1343,
-    "p95": 0.9295,
+    "n": 662653,
+    "area_km2": 66.2653,
+    "min": -0.9972,
+    "max": 0.9995,
+    "mean": 0.2147,
+    "std": 0.4236,
+    "p05": -0.3253,
+    "p50": 0.1167,
+    "p95": 0.9378,
     "coverage": {
-      "inside_pixels": 222072,
-      "valid_pixels": 165827,
-      "valid_percent_of_aoi": 74.67
+      "inside_pixels": 888261,
+      "valid_pixels": 662653,
+      "valid_percent_of_aoi": 74.6
     },
     "classes": {
       "水体或强吸收（<0）": {
-        "n": 49966,
-        "percent": 30.13
+        "n": 214231,
+        "percent": 32.33
       },
       "建成区/裸地/稀疏（0–0.2）": {
-        "n": 44108,
-        "percent": 26.6
+        "n": 172556,
+        "percent": 26.04
       },
       "中等植被（0.2–0.5）": {
-        "n": 28590,
-        "percent": 17.24
+        "n": 96464,
+        "percent": 14.56
       },
       "较密植被（≥0.5）": {
-        "n": 43163,
-        "percent": 26.03
+        "n": 179402,
+        "percent": 27.07
       }
     },
     "scl": {
       "water_scl6": {
-        "n": 51952,
-        "area_km2": 20.7808,
-        "min": -0.9969,
-        "max": 0.9197,
-        "mean": -0.1752,
-        "std": 0.2006,
-        "p05": -0.4454,
-        "p50": -0.2287,
-        "p95": 0.2038
+        "n": 207584,
+        "area_km2": 20.7584,
+        "min": -0.9972,
+        "max": 0.9634,
+        "mean": -0.1878,
+        "std": 0.2084,
+        "p05": -0.4961,
+        "p50": -0.2311,
+        "p95": 0.1828
       },
       "vegetation_scl4": {
-        "n": 46371,
-        "area_km2": 18.5484,
-        "min": 0.0502,
-        "max": 0.999,
-        "mean": 0.756,
-        "std": 0.1822,
-        "p05": 0.4057,
-        "p50": 0.8094,
-        "p95": 0.955
+        "n": 185377,
+        "area_km2": 18.5377,
+        "min": -0.2188,
+        "max": 0.9995,
+        "mean": 0.7809,
+        "std": 0.1789,
+        "p05": 0.4153,
+        "p50": 0.8441,
+        "p95": 0.9607
       },
       "not_vegetated_scl5": {
-        "n": 65859,
-        "area_km2": 26.3436,
-        "min": -0.851,
-        "max": 0.9299,
-        "mean": 0.1491,
-        "std": 0.1711,
-        "p05": -0.1352,
-        "p50": 0.1278,
-        "p95": 0.4506
+        "n": 263228,
+        "area_km2": 26.3228,
+        "min": -0.9553,
+        "max": 0.9861,
+        "mean": 0.1348,
+        "std": 0.1819,
+        "p05": -0.167,
+        "p50": 0.1113,
+        "p95": 0.4654
       }
     }
   },
   "winter": {
-    "n": 221804,
-    "area_km2": 88.7216,
-    "min": -0.9803,
-    "max": 0.9481,
-    "mean": 0.0008,
-    "std": 0.4303,
-    "p05": -0.5772,
-    "p50": 0.0448,
-    "p95": 0.815,
+    "n": 887044,
+    "area_km2": 88.7044,
+    "min": -0.992,
+    "max": 0.9815,
+    "mean": -0.0024,
+    "std": 0.4395,
+    "p05": -0.5817,
+    "p50": 0.0277,
+    "p95": 0.8291,
     "coverage": {
-      "inside_pixels": 222072,
-      "valid_pixels": 221804,
-      "valid_percent_of_aoi": 99.88
+      "inside_pixels": 888261,
+      "valid_pixels": 887044,
+      "valid_percent_of_aoi": 99.86
     },
     "classes": {
       "水体或强吸收（<0）": {
-        "n": 104154,
-        "percent": 46.96
+        "n": 425335,
+        "percent": 47.95
       },
       "建成区/裸地/稀疏（0–0.2）": {
-        "n": 49387,
-        "percent": 22.27
+        "n": 197665,
+        "percent": 22.28
       },
       "中等植被（0.2–0.5）": {
-        "n": 34779,
-        "percent": 15.68
+        "n": 122187,
+        "percent": 13.77
       },
       "较密植被（≥0.5）": {
-        "n": 33484,
-        "percent": 15.1
+        "n": 141857,
+        "percent": 15.99
       }
     },
     "scl": {
       "water_scl6": {
-        "n": 115451,
-        "area_km2": 46.1804,
-        "min": -0.9803,
-        "max": 0.7754,
-        "mean": -0.3339,
-        "std": 0.22,
-        "p05": -0.6074,
-        "p50": -0.3696,
-        "p95": 0.129
+        "n": 461749,
+        "area_km2": 46.1749,
+        "min": -0.992,
+        "max": 0.9339,
+        "mean": -0.3417,
+        "std": 0.2204,
+        "p05": -0.613,
+        "p50": -0.3762,
+        "p95": 0.1167
       },
       "vegetation_scl4": {
-        "n": 32637,
-        "area_km2": 13.0548,
-        "min": 0.0605,
-        "max": 0.9481,
-        "mean": 0.7296,
-        "std": 0.1311,
-        "p05": 0.4675,
-        "p50": 0.7737,
-        "p95": 0.875
+        "n": 130537,
+        "area_km2": 13.0537,
+        "min": -0.0787,
+        "max": 0.9617,
+        "mean": 0.7493,
+        "std": 0.1267,
+        "p05": 0.4915,
+        "p50": 0.7912,
+        "p95": 0.8841
       },
       "not_vegetated_scl5": {
-        "n": 73714,
-        "area_km2": 29.4856,
-        "min": -0.6349,
-        "max": 0.907,
-        "mean": 0.2024,
-        "std": 0.1503,
-        "p05": 0.0209,
-        "p50": 0.1702,
-        "p95": 0.4816
+        "n": 294750,
+        "area_km2": 29.475,
+        "min": -0.9194,
+        "max": 0.9815,
+        "mean": 0.1962,
+        "std": 0.1679,
+        "p05": -0.0022,
+        "p50": 0.1575,
+        "p95": 0.5144
       }
     }
   },
   "diff": {
-    "n": 165622,
-    "area_km2": 66.2488,
-    "min": -0.8394,
-    "max": 1.5782,
-    "mean": 0.0918,
-    "std": 0.1467,
-    "p05": -0.0808,
-    "p50": 0.0641,
-    "p95": 0.3751,
-    "overlap_pixels": 165622,
-    "gain_gt_threshold": 63276,
-    "gain_area_km2": 25.3104,
-    "loss_lt_threshold": 6124,
-    "loss_area_km2": 2.4496,
-    "stable": 96222,
-    "stable_area_km2": 38.4888
+    "n": 661701,
+    "area_km2": 66.1701,
+    "min": -1.1162,
+    "max": 1.6872,
+    "mean": 0.0925,
+    "std": 0.1623,
+    "p05": -0.1183,
+    "p50": 0.0677,
+    "p95": 0.392,
+    "overlap_pixels": 661701,
+    "gain_gt_threshold": 265972,
+    "gain_area_km2": 26.5972,
+    "loss_lt_threshold": 42520,
+    "loss_area_km2": 4.252,
+    "stable": 353209,
+    "stable_area_km2": 35.3209
   },
   "zones": [
     {
       "zone_id": 1,
       "name": "澳门半岛",
-      "pixels_in_zone_and_aoi": 36987,
-      "summer_n": 36215,
-      "summer_mean": 0.093,
-      "summer_p50": 0.0813,
-      "winter_n": 36987,
-      "winter_mean": -0.0003,
-      "winter_p50": 0.0871,
-      "diff_n": 36215,
-      "diff_mean": 0.0837,
-      "diff_p50": 0.0232
+      "pixels_in_zone_and_aoi": 148000,
+      "summer_n": 144870,
+      "summer_mean": 0.092,
+      "summer_p50": 0.0689,
+      "winter_n": 147972,
+      "winter_mean": -0.004,
+      "winter_p50": 0.0775,
+      "diff_n": 144843,
+      "diff_mean": 0.0862,
+      "diff_p50": 0.0343
     },
     {
       "zone_id": 2,
       "name": "氹仔—路凼",
-      "pixels_in_zone_and_aoi": 53027,
-      "summer_n": 37469,
-      "summer_mean": 0.1357,
-      "summer_p50": 0.0746,
-      "winter_n": 53021,
-      "winter_mean": -0.0689,
-      "winter_p50": -0.1704,
-      "diff_n": 37464,
-      "diff_mean": 0.0816,
-      "diff_p50": 0.0496
+      "pixels_in_zone_and_aoi": 212055,
+      "summer_n": 149647,
+      "summer_mean": 0.1302,
+      "summer_p50": 0.0621,
+      "winter_n": 211990,
+      "winter_mean": -0.0726,
+      "winter_p50": -0.2119,
+      "diff_n": 149593,
+      "diff_mean": 0.0806,
+      "diff_p50": 0.0544
     },
     {
       "zone_id": 3,
       "name": "路环",
-      "pixels_in_zone_and_aoi": 55744,
-      "summer_n": 36260,
-      "summer_mean": 0.3989,
-      "summer_p50": 0.4355,
-      "winter_n": 55741,
-      "winter_mean": 0.0654,
-      "winter_p50": 0.0366,
-      "diff_n": 36258,
-      "diff_mean": 0.0884,
-      "diff_p50": 0.0806
+      "pixels_in_zone_and_aoi": 222984,
+      "summer_n": 144696,
+      "summer_mean": 0.397,
+      "summer_p50": 0.4249,
+      "winter_n": 222950,
+      "winter_mean": 0.0629,
+      "winter_p50": 0.0253,
+      "diff_n": 144674,
+      "diff_mean": 0.0889,
+      "diff_p50": 0.0814
     }
   ],
   "scenes": {
@@ -229,7 +229,7 @@
       "reflectance_scale": 0.0001,
       "reflectance_offset": -0.1,
       "reflectance_method": "geotiff_scale_offset",
-      "red_reflectance_median_before_scl_mask": 0.11509998887777328,
+      "red_reflectance_median_before_scl_mask": 0.11479999870061874,
       "aoi_scl_clear_percent": 99.89,
       "properties": {
         "datetime": "2026-01-08T03:11:53.002000Z",
@@ -266,7 +266,7 @@
       "reflectance_scale": 0.0001,
       "reflectance_offset": -0.1,
       "reflectance_method": "geotiff_scale_offset",
-      "red_reflectance_median_before_scl_mask": 0.16940000653266907,
+      "red_reflectance_median_before_scl_mask": 0.16870000958442688,
       "aoi_scl_clear_percent": 74.76,
       "properties": {
         "datetime": "2026-08-06T03:11:48.741000Z",
@@ -294,25 +294,25 @@
   },
   "credit": "Contains modified Copernicus Sentinel data 2026",
   "diff_on_summer_scl_vegetation": {
-    "n": 46366,
-    "area_km2": 18.5464,
-    "min": -0.3804,
-    "max": 1.5782,
-    "mean": 0.1325,
-    "std": 0.1244,
-    "p05": -0.0163,
-    "p50": 0.1011,
-    "p95": 0.4036
+    "n": 185316,
+    "area_km2": 18.5316,
+    "min": -0.6296,
+    "max": 1.6872,
+    "mean": 0.1415,
+    "std": 0.1394,
+    "p05": -0.0304,
+    "p50": 0.1059,
+    "p95": 0.4356
   },
   "diff_on_summer_scl_water": {
-    "n": 51760,
-    "area_km2": 20.704,
-    "min": -0.6988,
-    "max": 1.2739,
-    "mean": 0.1434,
-    "std": 0.1702,
-    "p05": -0.0953,
-    "p50": 0.1426,
-    "p95": 0.4026
+    "n": 206776,
+    "area_km2": 20.6776,
+    "min": -0.9071,
+    "max": 1.5664,
+    "mean": 0.1425,
+    "std": 0.1828,
+    "p05": -0.1351,
+    "p50": 0.1499,
+    "p95": 0.4126
   }
 }

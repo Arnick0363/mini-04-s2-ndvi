@@ -1,26 +1,26 @@
 {
   "summer": {
     "path": "E:\\ReadyingPortfolio\\mini-04-s2-ndvi\\outputs\\qgis\\ndvi_summer.tif",
-    "n": 165822,
-    "min": -0.9969,
-    "max": 0.999,
-    "mean": 0.2177,
-    "std": 0.4067
+    "n": 662632,
+    "min": -0.9972,
+    "max": 0.9995,
+    "mean": 0.2147,
+    "std": 0.4236
   },
   "winter": {
     "path": "E:\\ReadyingPortfolio\\mini-04-s2-ndvi\\outputs\\qgis\\ndvi_winter.tif",
-    "n": 221805,
-    "min": -0.9803,
-    "max": 0.9481,
-    "mean": 0.0008,
-    "std": 0.4303
+    "n": 887039,
+    "min": -0.992,
+    "max": 0.9815,
+    "mean": -0.0024,
+    "std": 0.4395
   },
   "diff": {
     "path": "E:\\ReadyingPortfolio\\mini-04-s2-ndvi\\outputs\\qgis\\ndvi_diff.tif",
-    "n": 165617,
-    "min": -0.8394,
-    "max": 1.5782,
-    "mean": 0.0918,
-    "std": 0.1467
+    "n": 661680,
+    "min": -1.1162,
+    "max": 1.6872,
+    "mean": 0.0925,
+    "std": 0.1623
   }
 }

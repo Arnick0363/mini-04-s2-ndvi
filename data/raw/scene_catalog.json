@@ -3,13 +3,13 @@
   "credit": "Contains modified Copernicus Sentinel data 2026",
   "stac_endpoint": "https://earth-search.aws.element84.com/v1",
   "why_these_dates": "2026-01-08 与 2026-08-06 同为 Sentinel-2C、分幅 49QGE。一月代表冬季旱季，八月代表夏季湿季。珠江口夏季整景云量很少低于 10%，因此先保留研究区内 SCL 晴空比例高的八月景，而不是只看 110 km 分幅的整景云量。",
-  "resolution_note": "输出格网 20 m。B04/B08 的原生分辨率是 10 m；读取时使用 COG 的 2 倍概视图，因为本机对约 1.3 MB 的 10 m 压缩瓦片会收到不完整响应。SCL 本身是 20 m，与这个格网一致。NDVI 用的仍是 B04 与 B08 的地表反射率。",
+  "resolution_note": "输出格网 10 m，与 B04/B08 的原生分辨率一致。整块读取约 1.5 MB 的压缩瓦片时，HTTP 响应会被截断，因此按不超过 1 MB 的 Range 分段下载后再解码。SCL 本身是 20 m，用最近邻采样对齐到 10 m 格网，云掩膜的边缘仍按 20 m 台阶变化。NDVI 用的是 B04 与 B08 的地表反射率。",
   "aoi_file": "data/raw/aoi.geojson",
   "target_grid": {
     "crs": "EPSG:32649",
-    "resolution_m": 20.0,
-    "width": 452,
-    "height": 702,
+    "resolution_m": 10.0,
+    "width": 904,
+    "height": 1403,
     "pad_m": 800.0
   },
   "reflectance_note": "地表反射率 = DN * scale + offset。本批 COG 的 scale=0.0001、offset=-0.1，等价于 (DN-1000)/10000。NDVI 对共同乘数不敏感，但对这个加性偏移敏感，所以必须换算后再做比值。",
@@ -97,7 +97,7 @@
       "reflectance_scale": 0.0001,
       "reflectance_offset": -0.1,
       "reflectance_method": "geotiff_scale_offset",
-      "red_reflectance_median_before_scl_mask": 0.11509998887777328,
+      "red_reflectance_median_before_scl_mask": 0.11479999870061874,
       "aoi_scl_clear_percent": 99.89,
       "properties": {
         "datetime": "2026-01-08T03:11:53.002000Z",
@@ -134,7 +134,7 @@
       "reflectance_scale": 0.0001,
       "reflectance_offset": -0.1,
       "reflectance_method": "geotiff_scale_offset",
-      "red_reflectance_median_before_scl_mask": 0.16940000653266907,
+      "red_reflectance_median_before_scl_mask": 0.16870000958442688,
       "aoi_scl_clear_percent": 74.76,
       "properties": {
         "datetime": "2026-08-06T03:11:48.741000Z",

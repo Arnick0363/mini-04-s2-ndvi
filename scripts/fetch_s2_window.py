@@ -3,8 +3,8 @@
 从 Element84 Earth Search 的公开 Sentinel-2 L2A COG 按研究区窗口下载波段。
 
 不下载整景（单景通常数百 MB 到数 GB）。只读取澳门近岸矩形外加 800 m 缓冲
-的 B02/B03/B04/B08 与 SCL。反射率走 COG 的 2 倍概视图，落到 20 m 格网，
-再把 DN 换成地表反射率。10 m 全分辨率瓦片在本机网络上会被截断。
+的 B02/B03/B04/B08 与 SCL。反射率使用原生 10 m 格网。一次读取整块 10 m
+压缩瓦片会被代理截断，所以按 1 MB 的 HTTP Range 拼瓦片后再解码。
 
 两期是同一颗 Sentinel-2C、同一 MGRS 分幅 49QGE：
     冬季旱季  2026-01-08  S2C_T49QGE_20260108T030118_L2A
@@ -44,6 +44,8 @@ from rasterio.features import geometry_mask
 from rasterio.transform import Affine, from_origin
 from rasterio.warp import reproject
 from rasterio.windows import Window, from_bounds
+
+from cog_http import read_window as read_http_window
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
@@ -87,10 +89,9 @@ PROP_KEYS = (
 )
 NODATA = -9999.0
 PAD_M = 800.0
-# 原生 B04/B08 是 10 m。本机访问 S3 时，约 1.3 MB 的 10 m 压缩瓦片会被截断
-# （TIFFFillTile: got N bytes, expected M）。COG 的 2 倍概视图约 20 m，可以完整读出。
-RES_M = 20.0
-OVERVIEW_FACTOR = 2
+# B02/B03/B04/B08 的原生分辨率是 10 m。SCL 是 20 m，最近邻采样到这个格网。
+RES_M = 10.0
+OVERVIEW_FACTOR = 1
 
 
 def retry(func, what: str, tries: int = 3):
@@ -150,11 +151,13 @@ def request_window(src, bounds_xy):
     return window.intersection(full)
 
 
-def read_window(src, bounds_xy, overview_factor: int = 1):
-    """读取研究区窗口。overview_factor>1 时走 COG 概视图，避开读不完整的 10 m 瓦片。"""
+def read_window(src, bounds_xy, overview_factor: int = 1, href: str | None = None):
+    """读取研究区窗口。原生分辨率走分段 HTTP，概视图仍交给 GDAL。"""
     window = request_window(src, bounds_xy)
     if overview_factor <= 1:
-        arr = src.read(1, window=window)
+        if not href:
+            raise RuntimeError("原生分辨率读取需要 COG 的 href")
+        arr = read_http_window(href, int(window.col_off), int(window.row_off), int(window.width), int(window.height))
         return arr, src.window_transform(window)
     out_h = max(1, int(window.height) // overview_factor)
     out_w = max(1, int(window.width) // overview_factor)
@@ -266,11 +269,14 @@ def fetch_scene(item_id: str, bounds, transform, shape, aoi_gdf):
 
     def grab(asset_key, resampling, dtype, src_nodata, dst_nodata, overview_factor=1):
         href = assets[asset_key]["href"]
-        print(f"  读取 {asset_key}（概视图倍数 {overview_factor}）", flush=True)
+        if overview_factor <= 1:
+            print(f"  读取 {asset_key}（原生分辨率）", flush=True)
+        else:
+            print(f"  读取 {asset_key}（概视图倍数 {overview_factor}）", flush=True)
 
         def _read():
             with rasterio.open(href) as src:
-                arr, win_transform = read_window(src, bounds, overview_factor)
+                arr, win_transform = read_window(src, bounds, overview_factor, href)
                 scale = float(src.scales[0]) if src.scales else 1.0
                 offset = float(src.offsets[0]) if src.offsets else 0.0
                 warped = warp_to_grid(
@@ -404,9 +410,10 @@ def main():
             "而不是只看 110 km 分幅的整景云量。"
         ),
         "resolution_note": (
-            f"输出格网 {RES_M:.0f} m。B04/B08 的原生分辨率是 10 m；"
-            f"读取时使用 COG 的 {OVERVIEW_FACTOR} 倍概视图，因为本机对约 1.3 MB 的 10 m 压缩瓦片会收到不完整响应。"
-            "SCL 本身是 20 m，与这个格网一致。NDVI 用的仍是 B04 与 B08 的地表反射率。"
+            f"输出格网 {RES_M:.0f} m，与 B04/B08 的原生分辨率一致。"
+            "整块读取约 1.5 MB 的压缩瓦片时，HTTP 响应会被截断，因此按不超过 1 MB 的 Range 分段下载后再解码。"
+            "SCL 本身是 20 m，用最近邻采样对齐到 10 m 格网，云掩膜的边缘仍按 20 m 台阶变化。"
+            "NDVI 用的是 B04 与 B08 的地表反射率。"
         ),
         "aoi_file": "data/raw/aoi.geojson",
         "target_grid": {
